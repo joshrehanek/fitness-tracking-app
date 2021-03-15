@@ -13,14 +13,15 @@ const app = express();
 
 // Create mongoose connection
 // open mongoose server before express server so db is open
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Workoutdb", { 
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/workout", { 
     useNewUrlParser: true,
     useFindAndModify: false
  });
 
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
-db.once('open', () => console.log('Connected to DB'));
+db.once('open', () => console.log('Connected to MongoDb'));
 
 app.use(logger("dev"));
 
