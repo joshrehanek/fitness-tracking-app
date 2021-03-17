@@ -7,14 +7,12 @@ const htmlRoutes = require("./routes/html");
 
 const PORT = process.env.PORT || 3000;
 
-
-
 const app = express();
 
 // Create mongoose connection
 // open mongoose server before express server so db is open
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/workout", { 
+  process.env.MONGODB_URI || "mongodb://localhost/workouts", { 
     useNewUrlParser: true,
     useFindAndModify: false
  });
