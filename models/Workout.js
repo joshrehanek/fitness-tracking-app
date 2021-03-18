@@ -6,21 +6,18 @@ const WorkoutSchema = new mongoose.Schema({
         type: Date,
         default: () => new Date()
     },
-
-    exercises: [{
+    exercises: [
+        {
         type: {
             type: String,
             trim: true,
             required: true,
-            validate: [({ length }) => length <= 50, 'name is too long!']
         },
         name: {
             type: String,
             trim: true,
             required: true,
-            validate: [({ length }) => length <= 50, 'name is too long!']
         },
-
         duration: {
             type: Number,
             trim: true,
@@ -56,7 +53,7 @@ const WorkoutSchema = new mongoose.Schema({
     ],
     totalDuration: {
         type: Number,
-        default: 0
+        default: 0,
     }
 });
 
