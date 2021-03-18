@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Workout = require('../models/Workout')
 
-router.get('/workouts', async (req, res) => {
+router.get('/api/workouts', async (req, res) => {
     try{
         const workouts = await Workout.find();
         res.json(workouts);
@@ -10,9 +10,9 @@ router.get('/workouts', async (req, res) => {
     }
 });
 
-router.get('/workouts/range', async (req, res) => {
+router.get('/api/workouts/range', async (req, res) => {
     try{
-        const workouts = await Workout.find({}).limit(7);
+        const workouts = await Workout.find({});
         res.json(workouts);
     } catch (err) {
         res.status(500).json({ message: err.message })
@@ -20,7 +20,7 @@ router.get('/workouts/range', async (req, res) => {
 });
 
 //POST
-router.post('/workouts', async (req, res) => {
+router.post('/api/workouts', async (req, res) => {
     try {
         const newWorkout = await Workout.create(req.body);
         res.json(newWorkout);
@@ -30,7 +30,7 @@ router.post('/workouts', async (req, res) => {
 });
 
 //put
-router.put('/workouts/:id', async (req, res) => {
+router.put('/api/workouts/:id', async (req, res) => {
     try {
         const updatedWorkout = await Workout.findByIdAndUpdate( 
             { _id: req.params.id },
