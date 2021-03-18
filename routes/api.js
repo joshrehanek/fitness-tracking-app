@@ -22,44 +22,28 @@ router.get('/workouts/range', async (req, res) => {
 //POST
 router.post('/workouts', async (req, res) => {
     try {
-        const newWorkout = await Workout.create({});
+        const newWorkout = await Workout.create(req.body);
         res.json(newWorkout);
-        res.status(201).json(newWorkout);
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
 });
+
 //put
 router.put('/workouts/:id', async (req, res) => {
     try {
-        const updatedWorkout = await res.Workout.findByIdAndUpdate(
-            {   id: req.params.id }, 
-            {   
-                $push:{ 
-                    exercises: [req.body]
+        const updatedWorkout = await Workout.findByIdAndUpdate( 
+            { _id: req.params.id },
+            {
+                $inc: { totalDuration: req.body.duration },
+                $push: { exercises: req.body }
             },
-                $inc: { totalDuration: req.body.duration }
-            }
-        );
-        console.log(updatedWorkout);
-        res.json(updatedWorkout);
+            { new: true });
+            res.json(updatedWorkout)
     } catch (err) {
-        res.status(400).json({ message: err.message})
+        res.status(400),json({ message: err.message })
     }
 });
-// //delete find by id and delete
-// router.delete('/:id', async (req, res) => {
-//     try {
-//         const deletedWorkout = await res.Workout.remove()
-//         res.json({ message: `deleted workout: ${id}`})
-//     } catch (err) {
-//         res.status(500).json({ message: "can't find workout" })
-//     }
-
-//     res.Workout =Workout 
-//     next();
-// })
-
 
 module.exports = router;
 
