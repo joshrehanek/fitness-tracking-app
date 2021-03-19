@@ -32,15 +32,17 @@ router.post('/api/workouts', async (req, res) => {
 //put
 router.put('/api/workouts/:id', async (req, res) => {
     try {
-        const updatedWorkout = await Workout.findOneAndUpdate( 
+            await Workout.findOneAndUpdate( 
             { _id: req.params.id },
             {
                 $inc: { totalDuration: req.body.duration },
                 $push: { exercises: req.body }
             },
-            { new: true });
-            res.json(updatedWorkout)
-    } catch (err) {
+            { new: true })
+            .then(data => {
+            res.json(data)
+            })
+         } catch (err) {
         res.status(400),json({ message: err.message })
     }
 });
