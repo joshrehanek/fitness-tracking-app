@@ -33,7 +33,7 @@ The user is able to:
 - https://github.com/joshrehanek/fitness-tracking-app
 
 ## Demo
-- ![Demo](public\assets\img\demo.gif)
+- ![Demo](./assets/img/demo.gif)
 
 ## Technologies
 - [node.js](https://nodejs.org/en//)
