@@ -32,7 +32,7 @@ router.post('/api/workouts', async (req, res) => {
 //put
 router.put('/api/workouts/:id', async (req, res) => {
     try {
-        const updatedWorkout = await Workout.findByIdAndUpdate( 
+        const updatedWorkout = await Workout.findOneAndUpdate( 
             { _id: req.params.id },
             {
                 $inc: { totalDuration: req.body.duration },
