@@ -43,7 +43,7 @@ router.put('/api/workouts/:id', async (req, res) => {
             res.json(data)
             })
          } catch (err) {
-        res.status(400),json({ message: err.message })
+        res.status(400).send({ message: err.message })
     }
 });
 
