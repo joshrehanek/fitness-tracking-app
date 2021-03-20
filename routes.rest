@@ -1,0 +1,46 @@
+GET http://localhost:3000/api/workouts
+
+###
+
+POST http://localhost:3000/api/workouts
+Content-Type: application/json
+
+ {
+   
+    "exercises": [
+      {
+        "type": "cardio",
+        "name": "Jumping Jacks",
+        "duration": 20,
+        "weight": 0,
+        "reps": 10,
+        "sets": 4
+      }
+    ]
+  }
+###
+
+PUT http://localhost:3000/api/workouts/605297ab82398056004c00f1
+Content-Type: application/json
+
+{
+   
+    "exercises": [
+      {
+        "type": "resistance",
+        "name": "Bench Pre",
+        "duration": 20,
+        "weight": 300,
+        "reps": 10,
+        "sets": 4
+      }
+    ]
+  }
+###
+
+
+GET http://localhost:3000/api/workouts/range
+
+###
+
+

@@ -33,7 +33,6 @@ app.use(express.static("public"));
 app.use(htmlRoutes);
 app.use(apiRoutes);
 
-
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
   });
