@@ -3,7 +3,6 @@ As a user, I want to be able to view create and track daily workouts. I want to 
 
 ## Table of contents
 - [General Info](#general-info)
-- [Installation](#installation)
 - [Deployed App](#deployed)
 - [Link to GitHub Repo](#link-to-github-repo)
 - [Demo](#demo)
